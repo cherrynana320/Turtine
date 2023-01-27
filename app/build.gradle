@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
-
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -36,6 +36,9 @@ android {
     }
     task wrapper(type: Wrapper) {
         gradleVersion = '7.0'
+    }
+    buildFeatures {
+        viewBinding true
     }
 }
 

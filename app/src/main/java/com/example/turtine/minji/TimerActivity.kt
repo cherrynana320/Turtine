@@ -1,4 +1,4 @@
-package com.example.turtine
+package com.example.turtine.minji
 
 import android.os.*
 import androidx.appcompat.app.AppCompatActivity

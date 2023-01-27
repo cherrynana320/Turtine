@@ -1,7 +1,7 @@
-package com.example.turtine
+package com.example.turtine.minji
 
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import kotlinx.android.parcel.Parcelize
 
 // https://developer.android.com/kotlin/parcelize 참조
 @Parcelize

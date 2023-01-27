@@ -1,4 +1,4 @@
-package com.example.turtine
+package com.example.turtine.minji
 
 import android.content.Intent
 import android.os.Bundle
