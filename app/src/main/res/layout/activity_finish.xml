@@ -40,10 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginBottom="64dp"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.545"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView5"
@@ -160,6 +162,7 @@
         android:layout_width="48dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cb1" />
 
@@ -169,6 +172,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginBottom="200dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cb2"
         app:layout_constraintHorizontal_bias="0.51"
@@ -181,6 +186,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"
         android:layout_marginTop="58dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
