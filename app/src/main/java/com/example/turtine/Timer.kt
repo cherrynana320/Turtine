@@ -82,5 +82,9 @@ class Timer1 : AppCompatActivity() {
 }
 
 
-
-
+class Loutine : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_loutine)
+    }
+}

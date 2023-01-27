@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.turtine.MemoActivity
 import java.io.File
 import java.time.LocalDate
 import java.time.YearMonth
