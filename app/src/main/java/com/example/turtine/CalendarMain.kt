@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
     //보여질 년도와 월
     @RequiresApi(Build.VERSION_CODES.O)
     private fun monthYearFromDate(date: LocalDate): String {
-        val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM yyyy")
+        val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM")
         return date.format(formatter)
     }
 
@@ -122,12 +122,12 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
         var fileName : String
 
-        val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
+        val message = "선택된 날짜 : " + monthYearFromDate(selectedDate) +"."+ dayText
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         val intentToMemo = Intent(applicationContext, MemoActivity::class.java)
 
         //인텐트 스택 삭제
-        //intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        //intent.flags = Intent.FLAG_ACTIVITY_NEW_AR_TASTASK or Intent.FLAG_ACTIVITY_CLEK
 
         intentToMemo.putExtra("day", dayText.toString()) /*송신*/
         intentToMemo.putExtra("Myear", monthYearFromDate(selectedDate).toString())
