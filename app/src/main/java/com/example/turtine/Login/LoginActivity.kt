@@ -6,72 +6,53 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.turtine.MainActivity
 import com.example.turtine.R
+import com.example.turtine.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
-    val TAG: String = "MainActivity"
+    lateinit var loginBinding : ActivityLoginBinding
+    var DB:DBHelper_login?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(loginBinding.root)
+        DB = DBHelper_login(this)
 
-
-        // 로그인 버튼
-        btn_login.setOnClickListener {
+        loginBinding.btnLogin!!.setOnClickListener {
 
             //editText로부터 입력된 값을 받아온다
             var id = edit_id.text.toString()
             var pw = edit_pw.text.toString()
 
-            // 쉐어드로부터 저장된 id, pw 가져오기
-            val sharedPreference = getSharedPreferences("file name", Context.MODE_PRIVATE)
-            val savedId = sharedPreference.getString("id", "")
-            val savedPw = sharedPreference.getString("pw", "")
-
-            // 유저가 입력한 id, pw값과 쉐어드로 불러온 id, pw값 비교
-            if(id == savedId && pw == savedPw){
-                // 로그인 성공 다이얼로그 보여주기
-                dialog("success")
-            }
-            else{
-                // 로그인 실패 다이얼로그 보여주기
-                dialog("fail")
-            }
-        }
-
-        // 회원가입 버튼
-        btn_register2.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-
-    }
-
-    // 로그인 성공/실패 시 다이얼로그를 띄워주는 메소드
-    fun dialog(type: String){
-        var dialog = AlertDialog.Builder(this)
-
-        if(type.equals("success")){
-            dialog.setTitle("로그인 성공")
-            dialog.setMessage("로그인 성공!")
-        }
-        else if(type.equals("fail")){
-            dialog.setTitle("로그인 실패")
-            dialog.setMessage("아이디와 비밀번호를 확인해주세요")
-        }
-
-        var dialog_listener = object: DialogInterface.OnClickListener{
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-                when(which){
-                    DialogInterface.BUTTON_POSITIVE ->
-                        Log.d(TAG, "")
+            if (id == "" || pw == "") Toast.makeText(
+                this@LoginActivity,
+                "회원정보를 전부 입력해주세요",
+                Toast.LENGTH_SHORT
+            ).show() else {
+                val checkUserpass = DB!!.checkUserpass(id, pw)
+                if (checkUserpass == true) {
+                    Toast.makeText(this@LoginActivity, "로그인되었습니다.", Toast.LENGTH_SHORT)
+                        .show()
+                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this@LoginActivity, "회원정보가 존재하지 않습니다.", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
+        //회원가입버튼누르면register로 이동
+        loginBinding.btnRegister2.setOnClickListener {
+            val loginIntent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(loginIntent)
+        }
 
-        dialog.setPositiveButton("확인",dialog_listener)
-        dialog.show()
+
     }
+
 }
