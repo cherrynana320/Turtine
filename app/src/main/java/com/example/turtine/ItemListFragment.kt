@@ -58,7 +58,7 @@ class ItemListFragment : Fragment() {
         //++ 아무것도 전달하지 않는 기본 생성자 ItemListAdapter{}를 사용하여 새 adapter 속성을 초기화
         val adapter = ItemListAdapter {
             // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
-            val action =  ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id)
+                    val action =  ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id)
             this.findNavController().navigate(action)
         }
 
