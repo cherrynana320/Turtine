@@ -35,12 +35,14 @@ class LoginActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show() else {
                 val checkUserpass = DB!!.checkUserpass(id, pw)
+
                 if (checkUserpass == true) {
                     Toast.makeText(this@LoginActivity, "로그인되었습니다.", Toast.LENGTH_SHORT)
                         .show()
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
-                } else {
+                }
+                else {
                     Toast.makeText(this@LoginActivity, "회원정보가 존재하지 않습니다.", Toast.LENGTH_SHORT)
                         .show()
                 }

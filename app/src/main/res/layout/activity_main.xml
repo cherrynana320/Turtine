@@ -134,14 +134,13 @@
             android:textAlignment="center"
             android:textSize="16sp"/>
 
-
     </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:fontFamily="@font/myfont"
         android:layout_marginTop="20dp"/>
 

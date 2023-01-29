@@ -1,6 +1,8 @@
 package com.example.turtine
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +19,14 @@ class FinishActivity : AppCompatActivity() {
     lateinit var orangeView: ImageView
     lateinit var redView: ImageView
 
+    lateinit var FlagView : ImageView
+
+    lateinit var TomainBtn : Button
+
     private var checkBoxes = ArrayList<CheckBox>()
+
+    private var percent =
+        (checkBoxes.count { it.isChecked }.toDouble() / checkBoxes.size.toDouble()) * 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +36,12 @@ class FinishActivity : AppCompatActivity() {
         cb2 = findViewById<CheckBox>(R.id.cb2)
         cb3 = findViewById<CheckBox>(R.id.cb3)
         cb4 = findViewById<CheckBox>(R.id.cb4)
+
         greenView = findViewById<ImageView>(R.id.greenView)
         orangeView = findViewById<ImageView>(R.id.orangeView)
         redView = findViewById<ImageView>(R.id.redView)
+
+        TomainBtn = findViewById<Button>(R.id.ToCalendarBtn)
 
         checkBoxes.addAll(listOf(cb1, cb2, cb3, cb4))
         checkBoxes.forEach {
@@ -37,27 +49,38 @@ class FinishActivity : AppCompatActivity() {
                 setFlagVisibility()
             }
         }
+
+        //메인이동버튼
+
+        TomainBtn.setOnClickListener{
+            val intentToCal = Intent(applicationContext,MainActivity::class.java)
+            intentToCal.putExtra("percent", percent)
+            startActivity(intentToCal)
+        }
     }
 
     private fun setFlagVisibility() {
-        val percent =
-            (checkBoxes.count { it.isChecked }.toDouble() / checkBoxes.size.toDouble()) * 100
 
         if (percent >= 80) {
             greenView.isVisible = true
             orangeView.isVisible = false
             redView.isVisible = false
+            FlagView=greenView
 
         } else if (percent >= 50) {
             greenView.isVisible = false
             orangeView.isVisible = true
             redView.isVisible = false
+            FlagView=orangeView
 
         } else {
             greenView.isVisible = false
             orangeView.isVisible = false
             redView.isVisible = true
+            FlagView=greenView
         }
     }
+
+
 }
 
