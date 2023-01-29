@@ -30,6 +30,7 @@
             android:layout_weight="1"
             android:onClick="previousMonthAction"
             android:textColor="#6f9b3c"
+            android:backgroundTint="@color/white"
             android:text="@string/back"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -41,7 +42,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:text="2021 01"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="@color/black"/>
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="nextMonthAction"
+            android:backgroundTint="@color/white"
             android:text="@string/forward"
             android:textColor="#6f9b3c"
             android:textSize="20sp"
@@ -59,6 +61,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

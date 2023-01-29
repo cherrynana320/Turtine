@@ -42,6 +42,7 @@ class MemoActivity : AppCompatActivity() {
         btnToFinish.setOnClickListener{
             val intentToFinish = Intent(applicationContext,FinishActivity::class.java)
             intentToFinish.putExtra("day",dayText.toString())
+
             startActivity(intentToFinish)
 
         }

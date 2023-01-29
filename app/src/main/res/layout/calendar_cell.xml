@@ -15,7 +15,7 @@
         android:fontFamily="@font/myfont"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/flag"
+        android:id="@+id/flagimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"

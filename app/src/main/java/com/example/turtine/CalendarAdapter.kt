@@ -3,6 +3,7 @@ package  com.example.turtine
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
@@ -13,9 +14,10 @@ internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, priva
         val inflater = LayoutInflater.from(parent.context)
         //inflater는 레이아웃이랑 뷰를 연결시켜주는 메소드임
         val view: View = inflater.inflate(R.layout.calendar_cell, parent, false)
-        //layoutParams는 ㅌㅋ부모 레이아웃 안에서 View(뷰)가 어떻게 배치될지를 정의하는 속성이다.
+        //layoutParams는 부모 레이아웃 안에서 View(뷰)가 어떻게 배치될지를 정의하는 속성이다.
         val layoutParams = view.layoutParams
         layoutParams.height = (parent.height * 0.166666666).toInt()
+
 
         return CalendarViewHolder(view, onItemListener)
     }
@@ -23,7 +25,6 @@ internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, priva
     override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         //그니까 holder = 켈린더뷰홀더의 dayofMonth를 daysOfMonth[position]로 설정해준다 .
         holder.dayOfMonth.text = daysOfMonth[position]
-
 
     }
 

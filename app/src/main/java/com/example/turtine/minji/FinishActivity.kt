@@ -19,14 +19,11 @@ class FinishActivity : AppCompatActivity() {
     lateinit var orangeView: ImageView
     lateinit var redView: ImageView
 
-    lateinit var FlagView : ImageView
 
     lateinit var TomainBtn : Button
 
     private var checkBoxes = ArrayList<CheckBox>()
 
-    private var percent =
-        (checkBoxes.count { it.isChecked }.toDouble() / checkBoxes.size.toDouble()) * 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,39 +43,48 @@ class FinishActivity : AppCompatActivity() {
         checkBoxes.addAll(listOf(cb1, cb2, cb3, cb4))
         checkBoxes.forEach {
             it.setOnCheckedChangeListener { _, _ ->
-                setFlagVisibility()
+
+                var percent = setFlagVisibility()
+
+                TomainBtn.setOnClickListener{
+                    val intentToCal = Intent(applicationContext,MainActivity::class.java)
+                    intentToCal.putExtra("percent", percent)
+                    startActivity(intentToCal)
+
+                }
             }
         }
 
         //메인이동버튼
 
-        TomainBtn.setOnClickListener{
-            val intentToCal = Intent(applicationContext,MainActivity::class.java)
-            intentToCal.putExtra("percent", percent)
-            startActivity(intentToCal)
-        }
+
     }
 
-    private fun setFlagVisibility() {
+    fun setFlagVisibility() : Double {
+
+        val percent =
+            (checkBoxes.count { it.isChecked }.toDouble() / checkBoxes.size.toDouble()) * 100
 
         if (percent >= 80) {
             greenView.isVisible = true
             orangeView.isVisible = false
             redView.isVisible = false
-            FlagView=greenView
+
 
         } else if (percent >= 50) {
             greenView.isVisible = false
             orangeView.isVisible = true
             redView.isVisible = false
-            FlagView=orangeView
+
 
         } else {
             greenView.isVisible = false
             orangeView.isVisible = false
             redView.isVisible = true
-            FlagView=greenView
+
         }
+        return percent
+
     }
 
 

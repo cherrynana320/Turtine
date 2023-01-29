@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,7 +15,11 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turtine.databinding.ActivityFinishBinding.inflate
+import com.example.turtine.databinding.ActivityLoginBinding.inflate
+import com.example.turtine.databinding.CalendarCellBinding
 import kotlinx.android.synthetic.main.calendar_cell.*
+
 import java.io.File
 import java.time.LocalDate
 import java.time.YearMonth
@@ -28,12 +33,16 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
     lateinit var calendarRecyclerView: RecyclerView
     lateinit var selectedDate: LocalDate
 
-    lateinit var flagview : ImageView
+    private var _binding : CalendarCellBinding ? = null
+    private val binding get() = _binding!!
 
 
     @RequiresApi(Build.VERSION_CODES.O)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(
+        savedInstanceState: Bundle?
+    ) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -41,9 +50,9 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
         selectedDate = LocalDate.now()
         setMonthView()
 
-        if (selectedDate == LocalDate.now()){
-            flagview.isVisible
-        }
+        val flagimage = binding?.root
+
+            flagimage?.isVisible=true
 
     }
 
@@ -51,7 +60,7 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
     private fun initWidgets() {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView)
         monthYearText = findViewById(R.id.monthYearTV)
-        //flagview = findViewById(R.id.flag)
+
 
     }
 
@@ -141,24 +150,27 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
     }
 
-    private fun setFlagVisibility(){
-        var percent : Int
-        percent = intent.getIntExtra("percent",0)
+    fun fileInit(){
+        var percent : Double
+        percent = intent.getDoubleExtra("percent",0.0)
+        // Toast.makeText(this,percent,Toast.LENGTH_SHORT).show()
 
-        if(percent>=80){
-            flagview.setImageResource(R.drawable.green)
-            flagview.isVisible
+
+        if(percent>=80&&selectedDate!=null){
+            flagimage.setImageResource(R.drawable.green)
+            flagimage.isVisible
 
         }
-        else if(percent >=50){
-            flagview.setImageResource(R.drawable.orange)
-            flagview.isVisible
+        else if(percent >=50&&selectedDate!=null){
+            flagimage.setImageResource(R.drawable.orange)
+            flagimage.isVisible
         }
         else {
-            flagview.setImageResource(R.drawable.red)
-            flagview.isVisible
+            flagimage.setImageResource(R.drawable.red)
+            flagimage.isVisible
         }
     }
-
-
 }
+
+
+
