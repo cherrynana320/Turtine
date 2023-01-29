@@ -25,8 +25,6 @@ class ItemDetail1Fragment : Fragment() {
 
 
     lateinit var item1: Item1 // ++ 단일 항목에 관한 정보를 저장할 item 생성
-    lateinit var item2: Item2 // ++ 단일 항목에 관한 정보를 저장할 item 생성
-    lateinit var item3: Item3 // ++ 단일 항목에 관한 정보를 저장할 item 생성
 
 
     // ++ by 위임을 사용하여 속성 초기화를 activityViewModels 클래스에 전달.
@@ -96,21 +94,11 @@ class ItemDetail1Fragment : Fragment() {
 
         val id = navigationArgs.itemId // 탐색 인수를 검색하여 새로운 변수에 할당
 
-
         viewModel1.retrieveItem1(id).observe(this.viewLifecycleOwner) { selectedItem ->
             item1 = selectedItem
             bind1(item1)
         }
 
-//        viewModel2.retrieveItem2(id).observe(this.viewLifecycleOwner) { selectedItem ->
-//            item2 = selectedItem
-//            bind2(item2)
-//        }
-//
-//        viewModel3.retrieveItem3(id).observe(this.viewLifecycleOwner) { selectedItem ->
-//            item3 = selectedItem
-//            bind3(item3)
-//        }
     }
 
 

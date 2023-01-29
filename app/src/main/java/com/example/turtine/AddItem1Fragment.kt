@@ -33,9 +33,6 @@ class AddItem1Fragment : Fragment() {
 
     private val navigationArgs: ItemDetail1FragmentArgs by navArgs()
 
-    // Binding object instance corresponding to the fragment_add_item.xml layout
-    // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
-    // when the view hierarchy is attached to the fragment
     private var _binding: FragmentAddItem1Binding? = null
     private val binding get() = _binding!!
 
@@ -58,7 +55,6 @@ class AddItem1Fragment : Fragment() {
             binding.itemSec.text.toString()
         )
     }
-
 
 
 
