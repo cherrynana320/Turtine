@@ -41,7 +41,6 @@ class TimerActivity : AppCompatActivity() {
             finish()
             return
         }
-
         setContentView(binding.root)
 
         time = (routine.minute * 60 + routine.second) * 1000
