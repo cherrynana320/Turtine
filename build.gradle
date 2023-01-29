@@ -28,8 +28,6 @@ buildscript {
     }
 }
 
-
-
 allprojects {
     repositories {
         google()
