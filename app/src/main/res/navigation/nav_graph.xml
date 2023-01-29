@@ -26,28 +26,68 @@
         tools:layout="@layout/item_list_fragment">
         <action
             android:id="@+id/action_itemListFragment_to_itemDetailFragment"
-            app:destination="@id/itemDetailFragment" />
+            app:destination="@id/itemDetail1Fragment" />
         <action
-            android:id="@+id/action_itemListFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" />
+            android:id="@+id/action_itemListFragment_to_addItem1Fragment"
+            app:destination="@id/addItem1Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_addItem2Fragment"
+            app:destination="@id/addItem2Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_addItem3Fragment"
+            app:destination="@id/addItem3Fragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/itemDetailFragment"
-        android:name="com.example.turtine.ItemDetailFragment"
+        android:id="@+id/itemDetail1Fragment"
+        android:name="com.example.turtine.ItemDetail1Fragment"
         android:label="@string/item_detail_fragment_title"
-        tools:layout="@layout/fragment_item_detail">
+        tools:layout="@layout/fragment_item_detail_1">
         <argument
             android:name="item_id"
             app:argType="integer" />
         <action
-            android:id="@+id/action_itemDetailFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment" />
+            android:id="@+id/action_itemDetail1Fragment_to_addItem1Fragment"
+            app:destination="@id/addItem1Fragment"/>
     </fragment>
+
     <fragment
-        android:id="@+id/addItemFragment"
-        android:name="com.example.turtine.AddItemFragment"
+        android:id="@+id/itemDetail2Fragment"
+        android:name="com.example.turtine.ItemDetail2Fragment"
+        android:label="@string/item_detail_fragment_title"
+        tools:layout="@layout/fragment_item_detail_2">
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_itemDetail2Fragment_to_addItem2Fragment"
+            app:destination="@id/addItem2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/itemDetail3Fragment"
+        android:name="com.example.turtine.ItemDetail3Fragment"
+        android:label="@string/item_detail_fragment_title"
+        tools:layout="@layout/fragment_item_detail_3">
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_itemDetail3Fragment_to_addItem3Fragment"
+            app:destination="@id/addItem3Fragment" />
+    </fragment>
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/addItem1Fragment"
+        android:name="com.example.turtine.AddItem1Fragment"
         android:label="{title}"
-        tools:layout="@layout/fragment_add_item">
+        tools:layout="@layout/fragment_add_item_1">
         <argument
             android:name="title"
             app:argType="string" />
@@ -56,7 +96,45 @@
             android:defaultValue="-1"
             app:argType="integer" />
         <action
-            android:id="@+id/action_addItemFragment_to_itemListFragment"
+            android:id="@+id/action_addItem1Fragment_to_itemListFragment"
+            app:destination="@id/itemListFragment"
+            app:popUpTo="@id/itemListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addItem2Fragment"
+        android:name="com.example.turtine.AddItem2Fragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_item_2">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addItem2Fragment_to_itemListFragment"
+            app:destination="@id/itemListFragment"
+            app:popUpTo="@id/itemListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addItem3Fragment"
+        android:name="com.example.turtine.AddItem3Fragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_item_3">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addItem3Fragment_to_itemListFragment"
             app:destination="@id/itemListFragment"
             app:popUpTo="@id/itemListFragment"
             app:popUpToInclusive="true" />

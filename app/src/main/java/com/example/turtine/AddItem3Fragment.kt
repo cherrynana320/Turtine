@@ -10,32 +10,31 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.turtine.data.Item
-import com.example.turtine.databinding.FragmentAddItemBinding
+import com.example.turtine.data.Item3
+import com.example.turtine.databinding.FragmentAddItem3Binding
 
 /**
  * Fragment to add or update an item in the Inventory database.
  */
-class AddItemFragment : Fragment() {
-
+class AddItem3Fragment : Fragment() {
     // ++
     // by activityViewModels() : Kotlin 속성 위임을 사용하여 프래그먼트 전체에서 ViewModel을 공유
-    private val viewModel: InventoryViewModel by activityViewModels {
-        InventoryViewModelFactory(
-            (activity?.application as InventoryApplication).database
-                .itemDao() // ItemDao 인스턴스를 전달
+    private val viewModel3: InventoryViewModel3 by activityViewModels {
+        InventoryViewModelFactory3(
+            (activity?.application as InventoryApplication).database3
+                .itemDao3() // ItemDao 인스턴스를 전달
         )
     }
 
     // ++
-    lateinit var item: Item
+    lateinit var item3: Item3
 
-    private val navigationArgs: ItemDetailFragmentArgs by navArgs()
+    private val navigationArgs: ItemDetail3FragmentArgs by navArgs()
 
     // Binding object instance corresponding to the fragment_add_item.xml layout
     // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
     // when the view hierarchy is attached to the fragment
-    private var _binding: FragmentAddItemBinding? = null
+    private var _binding: FragmentAddItem3Binding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -43,33 +42,36 @@ class AddItemFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddItemBinding.inflate(inflater, container, false)
+        _binding = FragmentAddItem3Binding.inflate(inflater, container, false)
         return binding.root
     }
 
     // ++ 텍스트 필드가 비었는지 체크
-    private fun isEntryValid(): Boolean {
+    private fun isEntryValid3(): Boolean {
         // viewModel 인스턴스에서 isEntryValid() 함수를 호출하여 텍스트 뷰의 텍스트를 전달
         // viewModel.isEntryValid() 함수의 값을 반환
-        return viewModel.isEntryValid(
+        return viewModel3.isEntryValid3(
             binding.itemRoutine.text.toString(),
             binding.itemMin.text.toString(),
             binding.itemSec.text.toString()
         )
     }
 
+
+
+
     // ++ 아이템을 추가함
-    private fun addNewItem() {
-        if (isEntryValid()) {
+    private fun addNewItem3() {
+        if (isEntryValid3()) {
             // 사용자가 입력한 항목 세부정보를 전달하고 binding 인스턴스를 사용하여 읽음.
-            viewModel.addNewItem(
+            viewModel3.addNewItem3(
                 binding.itemRoutine.text.toString(),
                 binding.itemMin.text.toString(),
                 binding.itemSec.text.toString()
             )
         }
         // ItemListFragment로 다시 이동
-        val action = AddItemFragmentDirections.actionAddItemFragmentToItemListFragment()
+        val action = AddItem3FragmentDirections.actionAddItem3FragmentToItemListFragment()
         findNavController().navigate(action)
     }
 
@@ -78,7 +80,7 @@ class AddItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // 클릭 핸들러를 저장 버튼에 추가하고 addNewItem()을 호출
         binding.saveAction.setOnClickListener {
-            addNewItem()
+            addNewItem3()
         }
     }
 

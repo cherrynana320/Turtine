@@ -8,41 +8,39 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.turtine.data.Item
-import com.example.turtine.databinding.FragmentItemDetailBinding
+import com.example.turtine.data.Item2
+import com.example.turtine.databinding.FragmentItemDetail2Binding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
- * [ItemDetailFragment] displays the details of the selected item.
+ * [ItemDetailFragment1] displays the details of the selected item.
  */
-class ItemDetailFragment : Fragment() {
-    private val navigationArgs: ItemDetailFragmentArgs by navArgs()
+class ItemDetail2Fragment : Fragment() {
+    private val navigationArgs: ItemDetail2FragmentArgs by navArgs()
 
-    private var _binding: FragmentItemDetailBinding? = null
+    private var _binding: FragmentItemDetail2Binding? = null
     private val binding get() = _binding!!
 
-    lateinit var item: Item // ++ 단일 항목에 관한 정보를 저장할 item 생성
 
-    // ++ by 위임을 사용하여 속성 초기화를 activityViewModels 클래스에 전달.
-    // InventoryViewModelFactory 생성자를 전달
-    private val viewModel: InventoryViewModel by activityViewModels {
-        InventoryViewModelFactory(
-            (activity?.application as InventoryApplication).database.itemDao()
+    lateinit var item2: Item2 // ++ 단일 항목에 관한 정보를 저장할 item 생성
+
+
+    private val viewModel2: InventoryViewModel2 by activityViewModels {
+        InventoryViewModelFactory2(
+            (activity?.application as InventoryApplication).database2.itemDao2()
         )
     }
 
-    // ++ ItemListAdapter에서 한 작업과 비슷
-    // 각각 요소와 데이터 연결하기
-    private fun bind(item: Item) {
-//        binding.itemName.text = item.itemName
-//        binding.itemPrice.text = item.getFormattedPrice()
-//        binding.itemCount.text = item.quantityInStock.toString()
+
+    private fun bind2(item2: Item2) {
         binding.apply {
-            itemListRoutine.text = item.itemRoutine
-            itemListMin.text = item.itemMin.toString()
-            itemListSec.text = item.itemSec.toString()
+            itemListRoutine.text = item2.itemRoutine2
+            itemListMin.text = item2.itemMin2.toString()
+            itemListSec.text = item2.itemSec2.toString()
         }
     }
+
+
 
     // ++ 화면에 보여주기
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,9 +48,9 @@ class ItemDetailFragment : Fragment() {
 
         val id = navigationArgs.itemId // 탐색 인수를 검색하여 새로운 변수에 할당
 
-        viewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
-            item = selectedItem
-            bind(item)
+        viewModel2.retrieveItem2(id).observe(this.viewLifecycleOwner) { selectedItem ->
+            item2 = selectedItem
+            bind2(item2)
         }
     }
 
@@ -62,7 +60,7 @@ class ItemDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentItemDetail2Binding.inflate(inflater, container, false)
         return binding.root
     }
 

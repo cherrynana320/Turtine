@@ -26,7 +26,7 @@
         android:id="@+id/item_list_routine"
         style="@style/Widget.Inventory.ListItemTextView"
         android:layout_width="140dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="80dp"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toStartOf="@+id/item_list_min"
         app:layout_constraintStart_toStartOf="parent"

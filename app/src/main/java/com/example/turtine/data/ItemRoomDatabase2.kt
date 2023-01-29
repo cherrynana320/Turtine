@@ -5,11 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Item::class], version = 1, exportSchema = false)
-abstract class ItemRoomDatabase : RoomDatabase() {
+@Database(entities = [Item2::class], version = 1, exportSchema = false)
+abstract class ItemRoomDatabase2 : RoomDatabase() {
 
     // 데이터베이스는 DAO를 알아야 함 -> ItemDao를 반환하는 추상 함수를 선언 (DAO는 여러 개가 있을 수 있음)
-    abstract fun itemDao(): ItemDao
+    abstract fun itemDao2(): ItemDao2
+
 
     // 컴패니언 객체를 통해 클래스 이름을 한정자로 사용하여
     // 데이터베이스를 만들거나 가져오는 메서드에 액세스할 수 있음.
@@ -21,17 +22,17 @@ abstract class ItemRoomDatabase : RoomDatabase() {
 
         // INSTANCE 변수 :  데이터베이스가 만들어지면 데이터베이스 참조를 유지
         @Volatile
-        private var INSTANCE: ItemRoomDatabase? = null
+        private var INSTANCE: ItemRoomDatabase2? = null
 
 
         //synchronized 블록 내에 데이터베이스를 가져오면 한 번에 한 실행 스레드만 이 코드 블록에 들어갈 수 있으므로 데이터베이스가 한 번만 초기화
-        fun getDatabase(context: Context): ItemRoomDatabase {
+        fun getDatabase(context: Context): ItemRoomDatabase2 {
             return INSTANCE ?: synchronized(this){
                 // 데이터베이스 빌더를 사용하여 데이터베이스를 가져옴.
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    ItemRoomDatabase::class.java,
-                    "item_database"
+                    ItemRoomDatabase2::class.java,
+                    "item_database2"
                 )
                     .fallbackToDestructiveMigration()
                     .build()
