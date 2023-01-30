@@ -1,11 +1,10 @@
-package  com.example.turtine
+package  com.example.turtine.Calendar
 
-import android.media.Image
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turtine.R
 
 //얘는 인터셉턴데 레이아웃 즉 캘린더 셀 xml과 한 세트임
 //여기서 아이템뷰는 calendar_cell.xml을 말함

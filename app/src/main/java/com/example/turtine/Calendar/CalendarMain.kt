@@ -1,41 +1,37 @@
-package com.example.turtine
+package com.example.turtine.Calendar
 
 
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.turtine.databinding.ActivityFinishBinding.inflate
-import com.example.turtine.databinding.ActivityLoginBinding.inflate
+import com.example.turtine.MemoActivity
+import com.example.turtine.R
 import com.example.turtine.databinding.CalendarCellBinding
 import kotlinx.android.synthetic.main.calendar_cell.*
 
-import java.io.File
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
 
 
-class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
+class CalendarMainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
     lateinit var monthYearText: TextView
     lateinit var calendarRecyclerView: RecyclerView
     lateinit var selectedDate: LocalDate
-
+/*
     private var _binding : CalendarCellBinding ? = null
     private val binding get() = _binding!!
-
+*/
 
     @RequiresApi(Build.VERSION_CODES.O)
 
@@ -49,10 +45,6 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
         initWidgets()
         selectedDate = LocalDate.now()
         setMonthView()
-
-        val flagimage = binding?.root
-
-            flagimage?.isVisible=true
 
     }
 
@@ -150,26 +142,6 @@ class MainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
     }
 
-    fun fileInit(){
-        var percent : Double
-        percent = intent.getDoubleExtra("percent",0.0)
-        // Toast.makeText(this,percent,Toast.LENGTH_SHORT).show()
-
-
-        if(percent>=80&&selectedDate!=null){
-            flagimage.setImageResource(R.drawable.green)
-            flagimage.isVisible
-
-        }
-        else if(percent >=50&&selectedDate!=null){
-            flagimage.setImageResource(R.drawable.orange)
-            flagimage.isVisible
-        }
-        else {
-            flagimage.setImageResource(R.drawable.red)
-            flagimage.isVisible
-        }
-    }
 }
 
 

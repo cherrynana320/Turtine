@@ -1,15 +1,10 @@
 package com.example.turtine.Login
 
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import com.example.turtine.MainActivity
-import com.example.turtine.R
+import com.example.turtine.Calendar.CalendarMainActivity
 import com.example.turtine.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -39,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
                 if (checkUserpass == true) {
                     Toast.makeText(this@LoginActivity, "로그인되었습니다.", Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    val intent = Intent(applicationContext, CalendarMainActivity::class.java)
                     startActivity(intent)
                 }
                 else {

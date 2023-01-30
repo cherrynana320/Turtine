@@ -1,20 +1,9 @@
 package com.example.turtine
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
-import android.view.View
 import android.widget.*
-import androidx.core.app.ActivityCompat
-import com.example.turtine.MainActivity
-import  com.example.turtine.R
-import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
 
 class MemoActivity : AppCompatActivity() {
 

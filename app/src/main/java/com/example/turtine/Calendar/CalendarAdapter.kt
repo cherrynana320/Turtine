@@ -1,14 +1,20 @@
-package  com.example.turtine
+package  com.example.turtine.Calendar
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turtine.R
+import com.example.turtine.databinding.CalendarCellBinding
+import java.time.LocalDate
 import java.util.ArrayList
 
 //요 안에 뷰 홀더가 들어 있음 뷰홀더는 캐리어의 인터셉터임 따로 뷰홀더를 만들어줄거기 때문에 calendarViewHolder를 만듦
 internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, private val onItemListener: OnItemListener) : RecyclerView.Adapter<CalendarViewHolder>() {
+
+    private var _binding : CalendarCellBinding? = null
+    private val binding get() = _binding!!
     //뷰 홀더가 생성됐을때
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,6 +24,12 @@ internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, priva
         val layoutParams = view.layoutParams
         layoutParams.height = (parent.height * 0.166666666).toInt()
 
+        if(LocalDate.now()!=null){
+            val flagimage = binding?.root
+
+            flagimage?.isVisible=true
+
+        }
 
         return CalendarViewHolder(view, onItemListener)
     }
@@ -38,4 +50,6 @@ internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, priva
    interface OnItemListener {
         fun onItemClick(position: Int, dayText: String?)
     }
+
+
 }

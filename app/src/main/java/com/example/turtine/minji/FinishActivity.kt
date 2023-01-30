@@ -7,6 +7,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.example.turtine.Calendar.CalendarMainActivity
 
 class FinishActivity : AppCompatActivity() {
 
@@ -47,7 +48,7 @@ class FinishActivity : AppCompatActivity() {
                 var percent = setFlagVisibility()
 
                 TomainBtn.setOnClickListener{
-                    val intentToCal = Intent(applicationContext,MainActivity::class.java)
+                    val intentToCal = Intent(applicationContext, MainActivity::class.java)
                     intentToCal.putExtra("percent", percent)
                     startActivity(intentToCal)
 
