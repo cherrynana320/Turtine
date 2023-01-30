@@ -27,6 +27,7 @@
         android:id="@+id/item_list_date"
         style="@style/Widget.Inventory.Header"
         android:layout_marginStart="@dimen/margin_between_elements"
+        android:background="@drawable/line"
         android:text="2023.2.18"
         android:textAlignment="center"
         android:textColor="@color/Platation"
@@ -37,7 +38,7 @@
     <View
         android:id="@+id/divider"
         style="@style/Divider"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

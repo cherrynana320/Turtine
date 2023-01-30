@@ -26,8 +26,6 @@ class Timer3Fragment : Fragment() {
 
     private var itemBinding : ItemListItemBinding? = null
 
-
-
     private val viewModel3: InventoryViewModel3 by activityViewModels {
         InventoryViewModelFactory3(
             (activity?.application as InventoryApplication).database3.itemDao3()
@@ -110,11 +108,15 @@ class Timer3Fragment : Fragment() {
                     binding.doneButton.isVisible = true
                     binding.doneButton.setOnClickListener{
                         requireActivity().onBackPressed()
+
+
                         viewModel3.retrieveItem3(id).observe(viewLifecycleOwner) { selectedItem ->
                             item3 = selectedItem
                             // 리스트 아이템의 이미지뷰 바꾸기
                             itemBinding?.imageView?.setImageResource(R.drawable.ic_baseline_check_circle_outline_24)
                         }
+
+
                     }
                     activity
 
