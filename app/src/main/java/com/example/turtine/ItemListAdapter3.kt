@@ -13,7 +13,10 @@ import com.example.turtine.databinding.ItemListItemBinding
  * [ListAdapter] implementation for the recyclerview.
  */
 
-class ItemListAdapter3(private val onItemClicked: (Item3) -> Unit) :
+class ItemListAdapter3(
+    private val onItemClicked: (Item3) -> Unit,
+    private val onTimeClicked: (Item3) -> Unit,
+) :
     ListAdapter<Item3, ItemListAdapter3.ItemViewHolder3>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder3 {
@@ -27,16 +30,8 @@ class ItemListAdapter3(private val onItemClicked: (Item3) -> Unit) :
     }
 
 
-    class ItemViewHolder3(private var binding: ItemListItemBinding) :
+    class ItemViewHolder3( var binding: ItemListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(item: Item3) {
-            binding.apply {
-                itemListRoutine.text = item.itemRoutine3
-                itemListMin.text = item.itemMin3.toString() + "분"
-                itemListSec.text = item.itemSec3.toString() + "초"
-            }
-        }
     }
 
     companion object {
@@ -51,11 +46,25 @@ class ItemListAdapter3(private val onItemClicked: (Item3) -> Unit) :
         }
     }
 
-    override fun onBindViewHolder(holder: ItemListAdapter3.ItemViewHolder3, position: Int) {
-        val current = getItem(position)
-        holder.itemView.setOnClickListener {
-            onItemClicked(current)
+
+
+    override fun onBindViewHolder(holder: ItemViewHolder3, position: Int) {
+        val item = getItem(position)
+
+        with(holder.binding) {
+            root.setOnClickListener {
+                onItemClicked(item)
+            }
+
+            imageView.setOnClickListener {
+                onTimeClicked(item)
+            }
+
+            itemListRoutine.text = item.itemRoutine3
+            itemListMin.text = item.itemMin3.toString() + "분"
+            itemListSec.text = item.itemSec3.toString() + "초"
         }
-        holder.bind(current)
     }
+
+
 }

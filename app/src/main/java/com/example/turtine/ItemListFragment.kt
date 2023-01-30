@@ -75,23 +75,57 @@ class ItemListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //++ 아무것도 전달하지 않는 기본 생성자 ItemListAdapter{}를 사용하여 새 adapter 속성을 초기화
-        val adapter1 = ItemListAdapter1 {
-            // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
-                    val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id1)
-            this.findNavController().navigate(action)
-        }
+        val adapter1 = ItemListAdapter1 (
+            onItemClicked = {
+                // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToItemDetail1Fragment(it.id1)
+                this.findNavController().navigate(action)
+            },
+            onTimeClicked = {
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToTimer1Fragment(
+                        it.itemRoutine1,
+                        it.id1
+                    )
+                this.findNavController().navigate(action)
+            }
+        )
 
-        val adapter2 = ItemListAdapter2 {
-            // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
-            val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id2)
-            this.findNavController().navigate(action)
-        }
 
-        val adapter3 = ItemListAdapter3 {
-            // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
-            val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id3)
-            this.findNavController().navigate(action)
-        }
+        val adapter2 = ItemListAdapter2 (
+            onItemClicked = {
+                // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToItemDetail2Fragment(it.id2)
+                this.findNavController().navigate(action)
+            },
+            onTimeClicked = {
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToTimer2Fragment(
+                        it.itemRoutine2,
+                        it.id2
+                    )
+                this.findNavController().navigate(action)
+            }
+        )
+
+        val adapter3 = ItemListAdapter3 (
+            onItemClicked = {
+                // 항목 id를 전달하는 ItemListFragmentDirections에서 actionItemListFragmentToItemDetailFragment() 메서드를 호출합니다. 반환된 NavDirections 객체를 action에 할당
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToItemDetail3Fragment(it.id3)
+                this.findNavController().navigate(action)
+            },
+            onTimeClicked = {
+                val action =
+                    ItemListFragmentDirections.actionItemListFragmentToTimer3Fragment(
+                        it.itemRoutine3,
+                        it.id3
+                    )
+                this.findNavController().navigate(action)
+            }
+        )
 
 
 
