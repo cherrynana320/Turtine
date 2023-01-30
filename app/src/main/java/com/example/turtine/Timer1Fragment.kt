@@ -26,7 +26,7 @@ class Timer1Fragment : Fragment() {
 
     private var itemBinding : ItemListItemBinding? = null
 
-
+//ㅠㄱㅁ
 
     private val viewModel1: InventoryViewModel1 by activityViewModels {
         InventoryViewModelFactory1(
