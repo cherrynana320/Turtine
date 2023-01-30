@@ -52,7 +52,6 @@ class ItemListFragment : Fragment() {
 
 
 
-
     private var _binding: ItemListFragmentBinding? = null
     private val binding get() = _binding!!
 

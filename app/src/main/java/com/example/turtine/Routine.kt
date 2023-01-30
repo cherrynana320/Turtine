@@ -1,4 +1,3 @@
 package com.example.turtine
 
-class Routine
-    (val title: String, val rot: String)
+data class Routine(val title: String, val rot: String, var checked: Boolean = false)
