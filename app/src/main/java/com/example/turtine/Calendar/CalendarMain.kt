@@ -9,9 +9,14 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turtine.ItemListFragment
+import com.example.turtine.MainActivity
+import com.example.turtine.MemoActivity
 import com.example.turtine.R
+import com.example.turtine.databinding.CalendarCellBinding
 import kotlinx.android.synthetic.main.calendar_cell.*
 
 import java.time.LocalDate

@@ -53,10 +53,9 @@
         <action
             android:id="@+id/action_itemListFragment_to_timer3Fragment"
             app:destination="@id/timer3Fragment" />
-
-
-
     </fragment>
+
+
 
     <fragment
         android:id="@+id/itemDetail1Fragment"
@@ -71,6 +70,8 @@
             app:destination="@id/addItem1Fragment"/>
     </fragment>
 
+
+
     <fragment
         android:id="@+id/itemDetail2Fragment"
         android:name="com.example.turtine.ItemDetail2Fragment"
@@ -83,6 +84,8 @@
             android:id="@+id/action_itemDetail2Fragment_to_addItem2Fragment"
             app:destination="@id/addItem2Fragment" />
     </fragment>
+
+
 
     <fragment
         android:id="@+id/itemDetail3Fragment"
