@@ -13,7 +13,10 @@ import com.example.turtine.databinding.ItemListItemBinding
  * [ListAdapter] implementation for the recyclerview.
  */
 
-class ItemListAdapter2(private val onItemClicked: (Item2) -> Unit) :
+class ItemListAdapter2(
+    private val onItemClicked: (Item2) -> Unit,
+    private val onTimeClicked: (Item2) -> Unit,
+) :
     ListAdapter<Item2, ItemListAdapter2.ItemViewHolder2>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder2 {
@@ -27,17 +30,7 @@ class ItemListAdapter2(private val onItemClicked: (Item2) -> Unit) :
     }
 
 
-    class ItemViewHolder2(private var binding: ItemListItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Item2) {
-            binding.apply {
-                itemListRoutine.text = item.itemRoutine2
-                itemListMin.text = item.itemMin2.toString() + "분"
-                itemListSec.text = item.itemSec2.toString() + "초"
-            }
-        }
-    }
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<Item2>() {
@@ -51,11 +44,25 @@ class ItemListAdapter2(private val onItemClicked: (Item2) -> Unit) :
         }
     }
 
-    override fun onBindViewHolder(holder: ItemListAdapter2.ItemViewHolder2, position: Int) {
-        val current = getItem(position)
-        holder.itemView.setOnClickListener {
-            onItemClicked(current)
+    override fun onBindViewHolder(holder: ItemViewHolder2, position: Int) {
+        val item = getItem(position)
+
+        with(holder.binding) {
+            root.setOnClickListener {
+                onItemClicked(item)
+            }
+
+            imageView.setOnClickListener {
+                onTimeClicked(item)
+            }
+
+            itemListRoutine.text = item.itemRoutine2
+            itemListMin.text = item.itemMin2.toString() + "분"
+            itemListSec.text = item.itemSec2.toString() + "초"
         }
-        holder.bind(current)
+    }
+
+    class ItemViewHolder2(var binding: ItemListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
     }
 }

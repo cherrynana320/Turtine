@@ -25,8 +25,15 @@
         android:label="@string/app_name"
         tools:layout="@layout/item_list_fragment">
         <action
-            android:id="@+id/action_itemListFragment_to_itemDetailFragment"
+            android:id="@+id/action_itemListFragment_to_itemDetail1Fragment"
             app:destination="@id/itemDetail1Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemDetail2Fragment"
+            app:destination="@id/itemDetail2Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemDetail3Fragment"
+            app:destination="@id/itemDetail3Fragment" />
+
         <action
             android:id="@+id/action_itemListFragment_to_addItem1Fragment"
             app:destination="@id/addItem1Fragment" />
@@ -36,6 +43,19 @@
         <action
             android:id="@+id/action_itemListFragment_to_addItem3Fragment"
             app:destination="@id/addItem3Fragment" />
+
+        <action
+            android:id="@+id/action_itemListFragment_to_timer1Fragment"
+            app:destination="@id/timer1Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_timer2Fragment"
+            app:destination="@id/timer2Fragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_timer3Fragment"
+            app:destination="@id/timer3Fragment" />
+
+
+
     </fragment>
 
     <fragment
@@ -139,4 +159,49 @@
             app:popUpTo="@id/itemListFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/timer1Fragment"
+        android:name="com.example.turtine.Timer1Fragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_timer_1">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/timer2Fragment"
+        android:name="com.example.turtine.Timer2Fragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_timer_2">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/timer3Fragment"
+        android:name="com.example.turtine.Timer3Fragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_timer_3">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+
+
 </navigation>
