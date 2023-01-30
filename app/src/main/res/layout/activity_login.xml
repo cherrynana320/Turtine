@@ -73,25 +73,22 @@
             android:layout_width="wrap_content"
             android:layout_height="133dp"
             android:layout_marginTop="60dp"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/turtle_character"
-            tools:visibility="visible" />
+            app:srcCompat="@drawable/turtle_character" />
 
         <ImageView
             android:id="@+id/turtlelogo"
             android:layout_width="199dp"
             android:layout_height="71dp"
             android:layout_marginTop="152dp"
-            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/turtlecharacter"
             app:srcCompat="@drawable/logo_turtine"
-            tools:visibility="visible" />
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

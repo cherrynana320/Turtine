@@ -12,6 +12,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.turtine.ItemListFragment
+import com.example.turtine.MainActivity
 import com.example.turtine.MemoActivity
 import com.example.turtine.R
 import com.example.turtine.databinding.CalendarCellBinding
@@ -131,13 +133,14 @@ class CalendarMainActivity : AppCompatActivity(), CalendarAdapter.OnItemListener
 
         val message = "선택된 날짜 : " + monthYearFromDate(selectedDate) +"."+ dayText
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-        val intentToMemo = Intent(applicationContext, MemoActivity::class.java)
+
+        val intentToRoutine = Intent(applicationContext, MainActivity::class.java)
 
 
-        intentToMemo.putExtra("day", dayText.toString()) /*송신*/
-        intentToMemo.putExtra("Myear", monthYearFromDate(selectedDate).toString())
+        intentToRoutine.putExtra("day", dayText.toString()) /*송신*/
+        intentToRoutine.putExtra("Myear", monthYearFromDate(selectedDate).toString())
 
-        startActivity(intentToMemo)
+        startActivity(intentToRoutine)
 
 
     }

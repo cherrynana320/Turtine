@@ -42,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
                         if (insert == true) {
                             Toast.makeText(
                                 this@RegisterActivity,
-                                "가입되었습니다.",
+                                "$name 님 안녕하세요!",
                                 Toast.LENGTH_SHORT
                             ).show()
                             val intent = Intent(applicationContext,LoginActivity::class.java)

@@ -12,9 +12,11 @@ import java.util.ArrayList
 
 //요 안에 뷰 홀더가 들어 있음 뷰홀더는 캐리어의 인터셉터임 따로 뷰홀더를 만들어줄거기 때문에 calendarViewHolder를 만듦
 internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, private val onItemListener: OnItemListener) : RecyclerView.Adapter<CalendarViewHolder>() {
-
+/*
     private var _binding : CalendarCellBinding? = null
     private val binding get() = _binding!!
+*/
+
     //뷰 홀더가 생성됐을때
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,14 +25,14 @@ internal class CalendarAdapter(private val daysOfMonth: ArrayList<String>, priva
         //layoutParams는 부모 레이아웃 안에서 View(뷰)가 어떻게 배치될지를 정의하는 속성이다.
         val layoutParams = view.layoutParams
         layoutParams.height = (parent.height * 0.166666666).toInt()
-
+/*
         if(LocalDate.now()!=null){
-            val flagimage = binding?.root
+            val flagimage = binding.root
 
-            flagimage?.isVisible=true
+            flagimage.isVisible=true
 
         }
-
+*/
         return CalendarViewHolder(view, onItemListener)
     }
     //뷰와 뷰홀더가 묶였을 때 , 즉 재활용이 됐을ㄸ ㅐ

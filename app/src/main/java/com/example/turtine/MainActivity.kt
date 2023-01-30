@@ -16,6 +16,7 @@
 package com.example.turtine
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -23,10 +24,13 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity(R.layout.activity_routine) {
 
+    //private var dayText: TextView ? =null
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //fileInit()
 
         // Retrieve NavController from the NavHostFragment
         val navHostFragment = supportFragmentManager
@@ -34,6 +38,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_routine) {
         navController = navHostFragment.navController
         // Set up the action bar for use with the NavController
         setupActionBarWithNavController(this, navController)
+
     }
 
     /**
@@ -42,4 +47,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_routine) {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+/*
+    fun fileInit(){
+
+        dayText = findViewById(R.id.item_list_date)
+
+        var dayTextView :String
+        dayTextView =  intent.getStringExtra("Myear").toString() + "." + intent.getStringExtra("day").toString()
+
+        dayText?.setText(dayTextView)
+    }*/
 }
