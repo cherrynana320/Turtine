@@ -2,19 +2,33 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin">
 
+        <TextView
+            android:id="@+id/set_routine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="루틴 작성"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/item_routine_label"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/item_routine_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_marginTop="25dp"
             android:hint="루틴"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,15 +42,27 @@
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <TextView
+            android:id="@+id/set_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="타이머 설정"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_routine_label" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/item_min_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin"
             android:hint="분"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_routine_label">
+            app:layout_constraintTop_toBottomOf="@+id/set_timer">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/item_min"
@@ -71,7 +97,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/save_action"
+            android:text="등 록"
+            android:textColor="@color/Platation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/item_sec_label" />
