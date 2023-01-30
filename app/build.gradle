@@ -24,6 +24,8 @@ android {
         minSdk 26
 
         targetSdk 33
+        versionCode 1
+        versionName "1.0"
 
     compileSdkVersion 33
     buildToolsVersion "30.0.3"
@@ -32,9 +34,6 @@ android {
         applicationId "com.example.turtine"
         minSdkVersion 19
         targetSdkVersion 33
-
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -60,10 +59,7 @@ android {
     task wrapper(type: Wrapper) {
         gradleVersion = '7.0'
     }
-    buildFeatures {
-        viewBinding true
-    }
-
+  
     namespace 'com.example.turtine'
 
 }
