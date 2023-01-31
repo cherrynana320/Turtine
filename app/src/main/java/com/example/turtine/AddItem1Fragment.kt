@@ -57,7 +57,6 @@ class AddItem1Fragment : Fragment() {
     }
 
 
-
     // ++ 아이템을 추가함
     private fun addNewItem1() {
         if (isEntryValid1()) {

@@ -24,15 +24,6 @@
         android:name="com.example.turtine.ItemListFragment"
         android:label="@string/app_name"
         tools:layout="@layout/item_list_fragment">
-        <action
-            android:id="@+id/action_itemListFragment_to_itemDetail1Fragment"
-            app:destination="@id/itemDetail1Fragment" />
-        <action
-            android:id="@+id/action_itemListFragment_to_itemDetail2Fragment"
-            app:destination="@id/itemDetail2Fragment" />
-        <action
-            android:id="@+id/action_itemListFragment_to_itemDetail3Fragment"
-            app:destination="@id/itemDetail3Fragment" />
 
         <action
             android:id="@+id/action_itemListFragment_to_addItem1Fragment"
@@ -54,56 +45,6 @@
             android:id="@+id/action_itemListFragment_to_timer3Fragment"
             app:destination="@id/timer3Fragment" />
     </fragment>
-
-
-
-    <fragment
-        android:id="@+id/itemDetail1Fragment"
-        android:name="com.example.turtine.ItemDetail1Fragment"
-        android:label="@string/item_detail_fragment_title"
-        tools:layout="@layout/fragment_item_detail_1">
-        <argument
-            android:name="item_id"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_itemDetail1Fragment_to_addItem1Fragment"
-            app:destination="@id/addItem1Fragment"/>
-    </fragment>
-
-
-
-    <fragment
-        android:id="@+id/itemDetail2Fragment"
-        android:name="com.example.turtine.ItemDetail2Fragment"
-        android:label="@string/item_detail_fragment_title"
-        tools:layout="@layout/fragment_item_detail_2">
-        <argument
-            android:name="item_id"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_itemDetail2Fragment_to_addItem2Fragment"
-            app:destination="@id/addItem2Fragment" />
-    </fragment>
-
-
-
-    <fragment
-        android:id="@+id/itemDetail3Fragment"
-        android:name="com.example.turtine.ItemDetail3Fragment"
-        android:label="@string/item_detail_fragment_title"
-        tools:layout="@layout/fragment_item_detail_3">
-        <argument
-            android:name="item_id"
-            app:argType="integer" />
-        <action
-            android:id="@+id/action_itemDetail3Fragment_to_addItem3Fragment"
-            app:destination="@id/addItem3Fragment" />
-    </fragment>
-
-
-
-
-
 
 
     <fragment
